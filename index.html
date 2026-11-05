@@ -1,25 +1,355 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="theme-color" content="#050907" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+        <link
+            href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        />
+
         <link rel="stylesheet" href="./assets/css/style.css" />
-        <title>Project</title>
+
+        <title>RADAR//01 — Deep Surveillance</title>
     </head>
 
     <body>
-        <div class="radar">
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
+        <!-- BOOT SCREEN -->
+        <div class="boot-screen">
+            <div class="boot-logo">
+                <span class="boot-logo__icon">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                </span>
+
+                <span>R<span>//</span>479</span>
+            </div>
+
+            <div class="boot-progress">
+                <div class="boot-progress__bar"></div>
+            </div>
+
+            <div class="boot-info">
+                <span class="boot-status">INITIALIZING SYSTEM</span>
+                <span class="boot-percent">000%</span>
+            </div>
+
+            <div class="boot-log">
+                <span>ESTABLISHING SECURE CONNECTION...</span>
+            </div>
         </div>
 
+        <!-- BACKGROUND -->
+        <div class="environment">
+            <div class="environment__grid"></div>
+            <div class="environment__glow"></div>
+            <div class="environment__vignette"></div>
+        </div>
+
+        <div class="noise"></div>
+        <div class="scanlines"></div>
+        <div class="bg">
+            <video
+                src="./assets/videos/bg.mp4"
+                loop
+                muted
+                autoplay
+                playsinline
+            ></video>
+        </div>
+
+        <!-- MAIN APP -->
+        <main class="dashboard">
+            <!-- HEADER -->
+            <header class="topbar">
+                <div class="brand">
+                    <div class="brand__icon">
+                        <i class="fa-solid fa-satellite-dish"></i>
+                    </div>
+
+                    <div class="brand__text">
+                        <strong>RADAR<span>//</span>479</strong>
+                        <small>TACTICAL SURVEILLANCE SYSTEM</small>
+                    </div>
+                </div>
+
+                <div class="topbar__center">
+                    <span class="live-indicator"></span>
+                    SYSTEM ONLINE
+                </div>
+
+                <div class="topbar__right">
+                    <span class="topbar__date">OPERATION 09 / 11</span>
+                    <span class="topbar__clock">00:00:00</span>
+                </div>
+            </header>
+
+            <!-- MAIN CONTENT -->
+            <section class="main-layout">
+                <!-- LEFT INFORMATION -->
+                <aside class="sidebar sidebar--left">
+                    <div class="section-label">
+                        <span>01</span>
+                        MISSION CONTROL
+                    </div>
+
+                    <div class="mission">
+                        <span class="mission__label">CURRENT OPERATION</span>
+                        <h1>DEEP<br /><span>WATCH</span></h1>
+
+                        <p>
+                            Long-range surveillance and real-time signal
+                            detection.
+                        </p>
+
+                        <div class="mission__status">
+                            <span class="status-dot"></span>
+                            ACTIVE MONITORING
+                        </div>
+                    </div>
+
+                    <div class="coordinates">
+                        <span class="section-label">POSITION DATA</span>
+
+                        <div class="data-row">
+                            <span>LATITUDE</span>
+                            <strong>48°27'14"N</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>LONGITUDE</span>
+                            <strong>35°02'18"E</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>ALTITUDE</span>
+                            <strong>2,450 M</strong>
+                        </div>
+
+                        <div class="data-row">
+                            <span>RANGE</span>
+                            <strong>120.0 KM</strong>
+                        </div>
+                    </div>
+
+                    <div class="system-status">
+                        <span class="section-label">SYSTEM HEALTH</span>
+
+                        <div class="health-item">
+                            <div class="health-item__top">
+                                <span>RADAR POWER</span>
+                                <span>98%</span>
+                            </div>
+
+                            <div class="health-bar">
+                                <span style="--value: 98%"></span>
+                            </div>
+                        </div>
+
+                        <div class="health-item">
+                            <div class="health-item__top">
+                                <span>SIGNAL QUALITY</span>
+                                <span>87%</span>
+                            </div>
+
+                            <div class="health-bar">
+                                <span style="--value: 87%"></span>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- CENTRAL RADAR -->
+                <div class="radar-stage">
+                    <div class="radar-heading">
+                        <span>SECTOR 07 / NORTH-EAST</span>
+                        <span class="radar-heading__right">
+                            <span class="live-indicator"></span>
+                            LIVE SCANNING
+                        </span>
+                    </div>
+
+                    <div class="radar">
+                        <!-- Radar background -->
+                        <div class="radar__surface"></div>
+
+                        <!-- Circular rings -->
+                        <div class="radar__rings">
+                            <span class="ring ring--1"></span>
+                            <span class="ring ring--2"></span>
+                            <span class="ring ring--3"></span>
+                            <span class="ring ring--4"></span>
+                        </div>
+
+                        <!-- Crosshair -->
+                        <div class="radar__crosshair"></div>
+
+                        <!-- Direction labels -->
+                        <div class="direction direction--north">N</div>
+                        <div class="direction direction--east">E</div>
+                        <div class="direction direction--south">S</div>
+                        <div class="direction direction--west">W</div>
+
+                        <!-- Sweep -->
+                        <div class="radar__sweep">
+                            <div class="radar__beam"></div>
+                        </div>
+
+                        <!-- Targets -->
+                        <div class="targets">
+                            <div class="target target--1">
+                                <span class="target__pulse"></span>
+                                <span class="target__core"></span>
+                            </div>
+
+                            <div class="target target--2">
+                                <span class="target__pulse"></span>
+                                <span class="target__core"></span>
+                            </div>
+
+                            <div class="target target--3">
+                                <span class="target__pulse"></span>
+                                <span class="target__core"></span>
+                            </div>
+
+                            <div class="target target--4">
+                                <span class="target__pulse"></span>
+                                <span class="target__core"></span>
+                            </div>
+                        </div>
+
+                        <!-- Center -->
+                        <div class="radar__center">
+                            <span></span>
+                        </div>
+
+                        <!-- Target lock -->
+                        <div class="target-lock">
+                            <span class="lock-corner lock-corner--1"></span>
+                            <span class="lock-corner lock-corner--2"></span>
+                            <span class="lock-corner lock-corner--3"></span>
+                            <span class="lock-corner lock-corner--4"></span>
+                        </div>
+
+                        <!-- Radar decorative marks -->
+                        <div class="radar__ticks"></div>
+                    </div>
+
+                    <div class="radar-footer">
+                        <span>FREQUENCY: 9.45 GHZ</span>
+                        <span>ROTATION: 360°</span>
+                        <span>MODE: ACTIVE</span>
+                    </div>
+                </div>
+
+                <!-- RIGHT INFORMATION -->
+                <aside class="sidebar sidebar--right">
+                    <div class="section-label">
+                        <span>02</span>
+                        DETECTION LOG
+                    </div>
+
+                    <div class="detection-counter">
+                        <span class="detection-counter__label">
+                            OBJECTS DETECTED
+                        </span>
+
+                        <strong class="detection-counter__value">04</strong>
+
+                        <span class="detection-counter__sub">
+                            ACTIVE SIGNALS
+                        </span>
+                    </div>
+
+                    <div class="target-list">
+                        <span class="section-label">TRACKED OBJECTS</span>
+
+                        <div class="target-row active" data-target="1">
+                            <span class="target-row__dot"></span>
+                            <span class="target-row__name">UNKNOWN-01</span>
+                            <span class="target-row__type">HOSTILE?</span>
+                        </div>
+
+                        <div class="target-row" data-target="2">
+                            <span class="target-row__dot"></span>
+                            <span class="target-row__name">SIGNAL-02</span>
+                            <span class="target-row__type">UNKNOWN</span>
+                        </div>
+
+                        <div class="target-row" data-target="3">
+                            <span class="target-row__dot"></span>
+                            <span class="target-row__name">OBJECT-03</span>
+                            <span class="target-row__type">UNKNOWN</span>
+                        </div>
+
+                        <div class="target-row" data-target="4">
+                            <span class="target-row__dot"></span>
+                            <span class="target-row__name">SIGNAL-04</span>
+                            <span class="target-row__type">UNKNOWN</span>
+                        </div>
+                    </div>
+
+                    <div class="signal-panel">
+                        <span class="section-label">SIGNAL ANALYSIS</span>
+
+                        <div class="signal-value">
+                            <strong>94.8</strong>
+                            <span>%</span>
+                        </div>
+
+                        <div class="signal-bars">
+                            <i></i><i></i><i></i><i></i><i></i> <i></i><i></i
+                            ><i></i><i></i><i></i> <i></i><i></i><i></i><i></i
+                            ><i></i> <i></i><i></i><i></i><i></i><i></i>
+                        </div>
+
+                        <span class="signal-caption">
+                            RECEIVING FREQUENCY
+                        </span>
+                    </div>
+
+                    <div class="alert-panel">
+                        <span class="alert-panel__icon">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                        </span>
+
+                        <div>
+                            <strong>ANOMALY DETECTED</strong>
+                            <small>UNIDENTIFIED SIGNAL IN SECTOR 07</small>
+                        </div>
+                    </div>
+                </aside>
+            </section>
+
+            <!-- BOTTOM BAR -->
+            <footer class="bottom-bar">
+                <div class="bottom-bar__left">
+                    <span class="live-indicator"></span>
+                    CONNECTION ESTABLISHED
+                </div>
+
+                <div class="bottom-bar__center">
+                    <span>SECURE CHANNEL</span>
+                    <span class="bottom-bar__separator">/</span>
+                    <span>ENCRYPTION ACTIVE</span>
+                </div>
+
+                <div class="bottom-bar__right">
+                    RADAR//01 — SYSTEM VERSION 4.08
+                </div>
+            </footer>
+        </main>
+
+        <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
         <script src="./assets/js/main.js"></script>
     </body>
 </html>
