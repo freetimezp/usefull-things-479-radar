@@ -20,6 +20,40 @@ const clock = document.querySelector(".topbar__clock");
 
 let activeTarget = 1;
 
+const elements = [
+    ".topbar",
+    ".sidebar--left",
+    ".radar-stage",
+    ".sidebar--right",
+    ".bottom-bar",
+];
+
+gsap.set(elements, {
+    opacity: 0,
+    y: 25,
+});
+
+gsap.set(".radar", {
+    scale: 0.75,
+    rotation: -30,
+    opacity: 0,
+});
+
+gsap.set(".ring", {
+    scale: 0.5,
+    opacity: 0,
+});
+
+gsap.set(".target", {
+    scale: 0,
+    opacity: 0,
+});
+
+gsap.set(".radar__center", {
+    scale: 0,
+    opacity: 0,
+});
+
 /* =====================================
    DIGITAL CLOCK
 ===================================== */
@@ -222,40 +256,6 @@ function startSystem() {
 ===================================== */
 
 function startDashboard() {
-    const elements = [
-        ".topbar",
-        ".sidebar--left",
-        ".radar-stage",
-        ".sidebar--right",
-        ".bottom-bar",
-    ];
-
-    gsap.set(elements, {
-        opacity: 0,
-        y: 25,
-    });
-
-    gsap.set(".radar", {
-        scale: 0.75,
-        rotation: -30,
-        opacity: 0,
-    });
-
-    gsap.set(".ring", {
-        scale: 0.5,
-        opacity: 0,
-    });
-
-    gsap.set(".target", {
-        scale: 0,
-        opacity: 0,
-    });
-
-    gsap.set(".radar__center", {
-        scale: 0,
-        opacity: 0,
-    });
-
     const intro = gsap.timeline({
         onComplete: () => {
             animateTargets();
@@ -275,6 +275,27 @@ function startDashboard() {
             duration: 0.8,
             ease: "power3.out",
         })
+        .to(
+            [".sidebar--left", ".sidebar--right"],
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.8,
+                stagger: 0.15,
+                ease: "power3.out",
+            },
+            "-=0.5",
+        )
+        .to(
+            ".bottom-bar",
+            {
+                opacity: 1,
+                y: 0,
+                duration: 0.7,
+                ease: "power3.out",
+            },
+            "-=0.4",
+        )
 
         .to(
             ".radar-stage",
@@ -283,7 +304,7 @@ function startDashboard() {
                 duration: 0.5,
                 ease: "power3.out",
             },
-            "-=0.25",
+            "-=0.65",
         )
 
         .to(
@@ -295,7 +316,7 @@ function startDashboard() {
                 duration: 1.3,
                 ease: "back.out(1.4)",
             },
-            "-=0.3",
+            "-=0.7",
         )
         .to(
             ".ring",
@@ -306,7 +327,7 @@ function startDashboard() {
                 duration: 0.8,
                 ease: "power3.out",
             },
-            "-=0.6",
+            "-=0.75",
         )
         .to(
             ".radar__center",
@@ -316,7 +337,7 @@ function startDashboard() {
                 duration: 0.5,
                 ease: "back.out(2)",
             },
-            "-=0.3",
+            "-=0.7",
         )
         .to(
             ".target",
@@ -327,28 +348,7 @@ function startDashboard() {
                 duration: 0.6,
                 ease: "back.out(2)",
             },
-            "-=0.2",
-        )
-        .to(
-            [".sidebar--left", ".sidebar--right"],
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: "power3.out",
-            },
-            "-=0.6",
-        )
-        .to(
-            ".bottom-bar",
-            {
-                opacity: 1,
-                y: 0,
-                duration: 0.7,
-                ease: "power3.out",
-            },
-            "-=0.4",
+            "-=0.7",
         );
 }
 
