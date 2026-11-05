@@ -356,8 +356,4 @@ function startDashboard() {
    START
 ===================================== */
 
-if (!prefersReducedMotion) {
-    startSystem();
-} else {
-    startSystem();
-}
+window.addEventListener("DOMContentLoaded", startSystem);
