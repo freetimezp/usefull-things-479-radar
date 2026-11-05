@@ -673,6 +673,7 @@ body {
     width: 50%;
     height: 50%;
     transform-origin: bottom left;
+    transform: rotate(-45deg);
 
     background: linear-gradient(
         90deg,
@@ -1157,6 +1158,11 @@ body {
 ===================================== */
 
 @media (max-width: 700px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
     .environment {
         opacity: 0.8;
     }
@@ -1213,6 +1219,12 @@ body {
     }
 
     .sidebar--left {
+        margin-top: 10px;
+        border-top: 1px dashed rgba(255, 255, 255, 0.1);
+        border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        padding-top: 10px;
+        padding-bottom: 20px;
+
         grid-row: 2;
         display: grid;
         grid-template-columns: 1fr 1fr;
